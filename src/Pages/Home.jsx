@@ -6,14 +6,27 @@ import Form from '../components/Form'
 
 export default function Home () {
     
-         const [Todos, setTodos] = useState([1,2,3,4]);
+         const [Todos, setTodos] = useState([]);
+
          const addTodo = (todo) => (setTodos([...Todos, todo]))
+
+         const todoDelete = (id) => {
+           const filtered = Todos.filter((todo)=> todo.id !== id)
+           setTodos(filtered)
+        }
+
+        const editTodo = (id, newText) => {
+            console.log('oi')
+            var edittedTodo = [...Todos];
+            edittedTodo.splice(id, 1, {id: id, text: newText})
+             setTodos(edittedTodo)
+        }
     return (
         <Container maxWidth="xs" style={{ marginTop: "1em", padding: "1em" }}>
             <Form addTodo={addTodo}/>
                 <List sx={{ width: '100%'}}>
                     {Todos.map((todo)=>(
-                        <TodoItem key={todo.id} todo={todo}/>                    
+                        <TodoItem key={todo.id} todo={todo} todoDelete={todoDelete} editTodo={editTodo} />                    
                     ))}
                 </List>                                                                                                                                                             
        </Container>

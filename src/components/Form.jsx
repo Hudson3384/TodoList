@@ -9,12 +9,13 @@ const Form = ({ addTodo }) => {
         const todoObj = { id: id, text : text }
         setid( id + 1 ) 
         addTodo(todoObj)
-        console.log(todoObj)
+        document.getElementById('input').value = null
+        
     }
     return (
         <Paper style={{ padding: "1em", display: "flex", justifyContent: "center" }}>
-            <TextField variant="standard" label="Task" onChange={(e)=>setText(e.target.value)} fullWidth/>
-            <Button variant="text" onClick={()=>todoCreate(text)}>Add</Button>
+            <TextField id="input" variant="standard" label="Task" onChange={(e)=>setText(e.target.value)} fullWidth/>
+            <Button  variant="text" onClick={()=>todoCreate(text)}>Add</Button>
         </Paper>
     );
 }
