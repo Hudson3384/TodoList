@@ -17,6 +17,11 @@ export default function EditTodoDialog({open, dialogHandler, todo, editTodo}) {
   
   const [dialogText, setdialogText] = React.useState(todo.text);
 
+  const textHandler = () => {
+    editTodo(todo.id, dialogText);
+    dialogHandler();
+  }
+
   return (
       <Dialog
         open={open}
@@ -28,12 +33,14 @@ export default function EditTodoDialog({open, dialogHandler, todo, editTodo}) {
         <DialogTitle>{"Editing Text..."}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            <TextField defaultValue={todo.text} onChange={(e)=>setdialogText(e.target.value)}/>
+            <TextField 
+            defaultValue={todo.text} 
+            onChange={ (e)=> setdialogText(e.target.value)}/>
           </DialogContentText>
         </DialogContent> 
         <DialogActions>
           <Button onClick={dialogHandler}>Cancel</Button>
-          <Button onclick={editTodo( todo.id, dialogText )}>Ok</Button>
+          <Button onClick={textHandler}>Ok</Button>
         </DialogActions>
       </Dialog>
   );

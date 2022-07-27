@@ -22,14 +22,14 @@ export default function TodoItem({todo, todoDelete, editTodo}) {
     <Paper style={{marginTop: "0.5em" }} > 
       <ListItem 
         secondaryAction={
-          <IconButton edge="end" aria-label="delete" onClick={()=>{todoDelete(todo.id)}}>
+          <IconButton edge="end" aria-label="delete" onClick={()=>todoDelete(todo.id)}>
             <DeleteIcon />
           </IconButton>
         }
         disablePadding>
         <ListItemButton role={undefined}  dense>
           <ListItemIcon>
-            <Checkbox edge="start" />
+            <Checkbox edge="start" tabIndex={-1} disableRipple/>
         </ListItemIcon>
           <ListItemText primary={todo.text} onClick={()=>setopenDialog(true)}/>
         </ListItemButton>

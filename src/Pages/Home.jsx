@@ -15,12 +15,17 @@ export default function Home () {
            setTodos(filtered)
         }
 
-        const editTodo = (id, newText) => {
-            console.log('oi')
-            var edittedTodo = [...Todos];
-            edittedTodo.splice(id, 1, {id: id, text: newText})
-             setTodos(edittedTodo)
-        }
+        const editTodo = (id, editedText) => {
+            var todosArray = Todos;
+        
+            for (var i in todosArray) {
+              if (todosArray[i].id == id) {
+                todosArray[i].text = editedText;
+              }
+            }
+            setTodos(todosArray);
+          };
+        
     return (
         <Container maxWidth="xs" style={{ marginTop: "1em", padding: "1em" }}>
             <Form addTodo={addTodo}/>
