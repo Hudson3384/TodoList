@@ -13,10 +13,18 @@ const Form = ({ addTodo }) => {
         
     }
     return (
-        <Paper style={{ padding: "1em", display: "flex", justifyContent: "center" }}>
-            <TextField id="input" variant="standard" label="Task" onChange={(e)=>setText(e.target.value)} fullWidth/>
-            <Button  variant="text" onClick={()=>todoCreate(text)}>Add</Button>
-        </Paper>
+        <>
+            <Paper>
+                <p style={{display: 'flex', justifyContent: 'center', fontWeight: 'bold', padding: '15px'}}>Todo List</p>
+            </Paper>
+            <Paper style={{ padding: "1em", display: "flex", justifyContent: "center" }}>
+            
+
+                <TextField id="input" variant="standard" label="Task" onChange={(e)=>setText(e.target.value)} fullWidth/>
+                <Button  variant="text" onClick={()=>todoCreate(text)}>Add</Button>
+            </Paper>
+        </>
+        
     );
 }
 
